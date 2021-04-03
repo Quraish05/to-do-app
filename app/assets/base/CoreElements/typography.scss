@@ -172,3 +172,27 @@
   @include basicFontStyle($poppinsLight, 13px, $shadyLady, 300, 0, 0px 0);
   font-style: italic;
 }
+
+.loginPageHeader {
+  @include basicFontStyle($poppinsMedium, 50px, $white, 300, 0, 0px 0);
+}
+
+.loginPageSubHeader {
+  @include basicFontStyle($poppinsMedium, 26px, $white, 300, 0, 0px 0);
+}
+
+.loginPageHeaderBlack {
+  @include basicFontStyle($poppinsMedium, 50px, $black, 300, 0, 0px 0);
+}
+
+
+
+
+@media only screen and (min-device-width: $breakpointMobileMin) and (max-device-width: $breakpointMobileMax) and (-webkit-min-device-pixel-ratio: $minMobilePixelRatio) {
+
+
+  .loginPageHeaderBlack {
+    @include basicFontStyle($poppinsMedium, 40px, $black, 300, 0, 0px 0);
+  }
+
+}

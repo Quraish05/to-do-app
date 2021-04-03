@@ -1,0 +1,10 @@
+.loginLeftCol {
+  background-color: $primaryColor;
+  min-height: 100vh;
+}
+
+@media only screen and (min-device-width: $breakpointMobileMin) and (max-device-width: $breakpointMobileMax) and (-webkit-min-device-pixel-ratio: $minMobilePixelRatio) {
+  .loginLeftCol {
+    min-height: 50vh;
+  }
+}

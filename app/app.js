@@ -21,7 +21,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './assets/base/style.scss';
 
-
 // Import root app
 import App from 'containers/App';
 
@@ -33,6 +32,8 @@ import '!file-loader?name=[name].[ext]!./images/favicon.ico';
 import 'file-loader?name=.htaccess!./.htaccess'; // eslint-disable-line import/extensions
 
 import configureStore from './configureStore';
+
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
 // Import i18n messages
 import { translationMessages } from './i18n';
@@ -46,6 +47,46 @@ openSansObserver.load().then(() => {
   document.body.classList.add('fontLoaded');
 });
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      // main: mediumSlateBlue,
+      main: '#00c120',
+      // light: '#00CE06',
+    },
+    secondary: {
+      main: '#00BF71',
+
+      // main: secondaryColor,
+    },
+    // purpleColor: purpleColor,
+    // whiteColor: whiteColor,
+  },
+  status: {
+    // danger: orange,
+  },
+  typography: {
+    // fontFamily: CARNIVALIST_PRIMARY_FONT.join(),
+    // fontFamily: 'OpenSans-Regular',
+    // fontFamily: ['EuclidCircularB-Light', ...CARNIVALIST_PRIMARY_FONT].join(),
+  },
+  overrides: {
+    MuiStepIcon: {
+      root: {
+        '&$completed': {
+          // color: primaryColor,
+          // color: mediumSlateBlue,
+        },
+        '&$active': {
+          // color: mediumSlateBlue,
+          // color: primaryColor,
+        },
+      },
+      // fontFamily: ['Roboto', 'sans-serif'].join(),
+    },
+  },
+});
+
 // Create redux store with history
 const initialState = {};
 const store = configureStore(initialState, history);
@@ -54,11 +95,13 @@ const MOUNT_NODE = document.getElementById('app');
 const render = messages => {
   ReactDOM.render(
     <Provider store={store}>
-      <LanguageProvider messages={messages}>
-        <ConnectedRouter history={history}>
-          <App />
-        </ConnectedRouter>
-      </LanguageProvider>
+      <MuiThemeProvider theme={theme}>
+        <LanguageProvider messages={messages}>
+          <ConnectedRouter history={history}>
+            <App />
+          </ConnectedRouter>
+        </LanguageProvider>
+      </MuiThemeProvider>
     </Provider>,
     MOUNT_NODE,
   );

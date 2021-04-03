@@ -13,17 +13,20 @@ import { Switch, Route } from 'react-router-dom';
 
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import CurrencyConverter from 'containers/CurrencyConverter/Loadable';
+import Login from 'containers/Login/Loadable';
+
+import PrivateRoute from './PrivateRoute';
 
 import GlobalStyle from '../../global-styles';
 
 const AppWrapper = styled.div`
-  max-width: calc(1250px + 16px * 2);
   margin: 0 auto;
   display: flex;
   min-height: 100%;
-  padding: 0 16px;
   flex-direction: column;
 `;
+// max-width: calc(1250px + 16px * 2);
+
 
 export default function App() {
   return (
@@ -32,11 +35,15 @@ export default function App() {
         titleTemplate="%s - React.js Bitcoin Currency Converter"
         defaultTitle="React.js Bitcoin Currency Converter"
       >
-        <meta name="description" content="A React.js Bitcoin Currency Converter application" />
+        <meta
+          name="description"
+          content="A React.js Bitcoin Currency Converter application"
+        />
       </Helmet>
       {/* <Header /> */}
       <Switch>
-        <Route path="/" component={CurrencyConverter} />
+        <Route path="/" component={Login} />
+        {/* <Route path="/" component={CurrencyConverter} /> */}
         <Route path="" component={NotFoundPage} />
       </Switch>
       {/* <Footer /> */}
