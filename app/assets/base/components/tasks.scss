@@ -1,0 +1,19 @@
+.logoutBar {
+  background-color: rgb(117, 117, 117);
+  max-width: 70px;
+  min-height: 100vh;
+}
+
+
+.todoCategory{
+    border-radius: 12px;
+    overflow: auto;
+}
+
+@media only screen and (min-device-width: $breakpointMobileMin) and (max-device-width: $breakpointMobileMax) and (-webkit-min-device-pixel-ratio: $minMobilePixelRatio) {
+
+    .logoutBar {
+        max-width: 100%;
+        min-height: 50px;
+      }
+}

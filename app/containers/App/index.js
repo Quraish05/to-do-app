@@ -12,8 +12,8 @@ import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import CurrencyConverter from 'containers/CurrencyConverter/Loadable';
 import Login from 'containers/Login/Loadable';
+import Tasks from 'containers/Tasks/Loadable';
 
 import PrivateRoute from './PrivateRoute';
 
@@ -26,7 +26,6 @@ const AppWrapper = styled.div`
   flex-direction: column;
 `;
 // max-width: calc(1250px + 16px * 2);
-
 
 export default function App() {
   return (
@@ -42,8 +41,9 @@ export default function App() {
       </Helmet>
       {/* <Header /> */}
       <Switch>
+        <Route path="/tasks" exact component={Tasks} />
+
         <Route path="/" component={Login} />
-        {/* <Route path="/" component={CurrencyConverter} /> */}
         <Route path="" component={NotFoundPage} />
       </Switch>
       {/* <Footer /> */}

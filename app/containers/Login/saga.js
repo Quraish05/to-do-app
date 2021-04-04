@@ -4,6 +4,7 @@ import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
 import { LOGIN_ACTION } from './constants';
 
 import { postRequest } from 'utils/request';
+import history from 'utils/history';
 
 var dayjs = require('dayjs');
 var duration = require('dayjs/plugin/duration');

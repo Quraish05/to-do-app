@@ -185,14 +185,16 @@
   @include basicFontStyle($poppinsMedium, 50px, $black, 300, 0, 0px 0);
 }
 
+.todoTitle {
+  @include basicFontStyle($poppinsRegular, 15px, $black, 300, 0, 0px 0);
 
-
+  padding: 0.3rem 0;
+  background-color: rgb(243, 207, 1);
+  text-align: center;
+}
 
 @media only screen and (min-device-width: $breakpointMobileMin) and (max-device-width: $breakpointMobileMax) and (-webkit-min-device-pixel-ratio: $minMobilePixelRatio) {
-
-
   .loginPageHeaderBlack {
     @include basicFontStyle($poppinsMedium, 40px, $black, 300, 0, 0px 0);
   }
-
 }

@@ -17,7 +17,15 @@ import makeSelectTasks from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
-export function Tasks() {
+import history from 'utils/history';
+
+import TasksListPart from './TasksListPart';
+
+import { Col, Container, Row } from 'reactstrap';
+import IconButton from '@material-ui/core/IconButton';
+import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
+
+export function Tasks(props) {
   useInjectReducer({ key: 'tasks', reducer });
   useInjectSaga({ key: 'tasks', saga });
 
@@ -27,6 +35,32 @@ export function Tasks() {
         <title>Tasks</title>
         <meta name="description" content="Description of Tasks" />
       </Helmet>
+      <Container fluid>
+        <Row style={{ minHeight: '100vh' }}>
+          <Col xs="12" sm="3" className="statsColumn">
+            <Row>
+              <Col xs="12" sm="1" className="logoutBar px-0">
+                <IconButton
+                  onClick={() => {
+                    history.push('/');
+                    localStorage.removeItem('token');
+                  }}
+                >
+                  <PowerSettingsNewIcon />
+                </IconButton>
+              </Col>
+              <Col xs="12" sm="2" className="statsColumn">
+                <div className="">hi</div>
+                my name
+              </Col>
+            </Row>
+          </Col>
+
+          <Col xs="12" sm="9" className="">
+            <TasksListPart {...props} />
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
